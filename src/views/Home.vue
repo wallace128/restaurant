@@ -1,18 +1,37 @@
 <template>
-  <div class="home">
-    <img alt="Vue logo" src="../assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
-  </div>
+<div>
+  <h2 class="align"> Click the hearts to create a collection of your favorite restaurants </h2>
+  <Favrestaurants :restaurants="restaurants" />
+</div>
 </template>
 
 <script>
-// @ is an alias to /src
-import HelloWorld from '@/components/HelloWorld.vue'
-
+import Favrestaurants from "../components/Favrestaurants.vue"
 export default {
   name: 'Home',
   components: {
-    HelloWorld
-  }
+    Favrestaurants
+  },
+  data() {
+    return {
+    }
+  },
+  computed: {
+    restaurants() {
+      return this.$root.$data.restaurants;
+    }
+  },
 }
 </script>
+
+<style>
+  .align {
+    text-align: center;
+    margin-bottom: -50px;
+  }
+  body {
+   min-height: 400px;
+   margin-bottom: 130px;
+   clear: both;
+}
+</style>

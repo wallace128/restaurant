@@ -1,32 +1,122 @@
 <template>
-  <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
+<div id="app">
+  <div id="menu">
+    <div id="brand">
+      <router-link to="/">
+        <img src="../images/logo.jpg">
+      </router-link>
     </div>
-    <router-view/>
+    <nav>
+      <div>
+        <ul>
+          <li>
+          <router-link to="/">
+            <h2> Home </h2>
+            </router-link>
+          </li>
+          <li>
+          <router-link to="/favorites">
+            <h2>Favorites</h2>
+            </router-link>
+          </li>
+          <li>
+          <router-link to="/about">
+            <h2>About me</h2>
+            </router-link>
+          </li>
+        </ul>
+      </div>
+    </nav>
+    <div class="menu-item favs" id="side"> <h1> Restaurant Rater! </h1> </div>
   </div>
+  <router-view />
+  <div margin-bottom>
+  <footer class="footer">
+    <div class="center">
+       <a href="https://github.com/wallace128/restaurant.git">GitHub</a>
+    </div>
+  </footer>
+  </div>
+</div>
 </template>
 
 <style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 50px 100px;
+
+}
+
+#menu {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-column-gap: 5px;
+  grid-template-areas: "none brand side";
+  margin-bottom: 50px;
+}
+
+#menu a {
+  color: #B84901;
+}
+
+.footer {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  color: white;
   text-align: center;
-  color: #2c3e50;
 }
 
-#nav {
-  padding: 30px;
+#brand {
+  grid-area: brand;
+  display: flex;
+  justify-content: center;
 }
 
-#nav a {
-  font-weight: bold;
-  color: #2c3e50;
+#brand img {
+  height: 200px;
 }
 
-#nav a.router-link-exact-active {
-  color: #42b983;
+#side {
+  grid-area: side;
+  display: flex;
+  justify-content: flex-end;
 }
+
+#side img {
+  width: 70px;
+}
+
+.menu-item {
+  display: flex;
+  margin-top: 50px;
+}
+
+ul {
+  margin-left: 150px;
+  margin-top: 20px;
+  padding-top: 15px;
+
+}
+
+.margin-bottom {
+  margin-bottom: 20px;
+}
+
+.menu-item p {
+  margin: 0px;
+}
+
+.favs {
+  margin-left: 30px;
+}
+
+body {
+  background-color: lightgrey;
+}
+
 </style>
